@@ -1,0 +1,93 @@
+
+{
+  "theme": "violet",
+  "calendar": "3d",
+  "login": "osamabq-me",
+  "name": "Osamah Almekhlafi",
+  "tagline": "Building technology for a safer, smarter, and more comfortable world.",
+  "subline": "Full-stack applications, financial systems, data-driven solutions and intelligent automation.",
+  "focus": "full-stack · backend · data · security · fintech · AI",
+  "location": "Yogyakarta, Indonesia / Riyadh, Saudi Arabia",
+  "status": "Open to new roles",
+  "stackNote": "Tools I use to build, analyze and secure systems.",
+  "stack": [
+    {
+      "group": "Languages",
+      "items": [
+        { "name": "Java", "icon": "openjdk" },
+        { "name": "Python", "icon": "python" },
+        { "name": "C# / .NET", "icon": "dotnet" },
+        { "name": "Kotlin", "icon": "kotlin" },
+        { "name": "C++", "icon": "cplusplus" },
+        { "name": "SQL", "icon": "x-table" }
+      ]
+    },
+    {
+      "group": "Backend",
+      "items": [
+        { "name": "Spring Boot", "icon": "springboot" },
+        { "name": "Spring Cloud", "icon": "spring" },
+        { "name": "Swagger", "icon": "swagger" },
+        { "name": "REST APIs", "icon": "x-braces" },
+        { "name": "Temenos", "color": "#7c3aed", "icon": "x-bank" }
+      ]
+    },
+    {
+      "group": "Databases",
+      "items": [
+        { "name": "Oracle", "color": "#C74634", "icon": "x-database" },
+        { "name": "MySQL", "icon": "mysql" },
+        { "name": "SQL Server", "color": "#CC2927", "icon": "x-database" },
+        { "name": "ER modeling", "icon": "x-er" }
+      ]
+    },
+    {
+      "group": "Data & ML",
+      "items": [
+        { "name": "pandas", "icon": "pandas" },
+        { "name": "NumPy", "icon": "numpy" },
+        { "name": "scikit-learn", "icon": "scikitlearn" },
+        { "name": "XGBoost", "color": "#189FDD", "icon": "x-tree" },
+        { "name": "Plotly", "icon": "plotly" },
+        { "name": "Folium", "icon": "folium" },
+        { "name": "Power BI", "color": "#D9A300", "icon": "x-bars" }
+      ]
+    },
+    {
+      "group": "AI & automation",
+      "items": [
+        { "name": "n8n", "mono": "n8n", "color": "#EA4B71" },
+        { "name": "Claude Code", "icon": "claude" },
+        { "name": "Cursor", "icon": "cursor" },
+        { "name": "OpenClaw", "icon": "x-cycle" },
+        { "name": "GitHub Actions", "icon": "githubactions" }
+      ]
+    },
+    {
+      "group": "Security & ops",
+      "items": [
+        { "name": "Kali Linux", "icon": "kalilinux" },
+        { "name": "OWASP testing", "icon": "owasp" },
+        { "name": "GitLab CI/CD", "icon": "gitlab" },
+        { "name": "Red Hat Linux", "icon": "redhat" }
+      ]
+    }
+  ],
+  "languages": {
+    "top": 6,
+    "excludeRepos": [
+      "PDW_Final_K5",
+      "UCP1_PDW_152",
+      "Triangle",
+      "Exe2_20210140152",
+      "Voucher-Game"
+    ],
+    "excludeLanguages": [
+      "TeX",
+      "SCSS",
+      "Blade",
+      "CSS"
+    ]
+  },
+  "headerArt": "flow"
+}

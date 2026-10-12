@@ -1,0 +1,49 @@
+name: Profile graphics
+
+on:
+  schedule:
+    - cron: "17 0 * * *" # every day, shortly after midnight UTC
+  workflow_dispatch: # lets you run it by hand from the Actions tab
+  push:
+    branches: [main]
+    paths:
+      - scripts/**
+      - profile.config.json
+      - .github/workflows/profile.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-graphics
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Render graphics
+        run: node scripts/render.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Optional: a read-only token that can see your private repos, so
+          # the Languages card includes them. Without it, public repos only.
+          PROFILE_TOKEN: ${{ secrets.PROFILE_TOKEN }}
+
+      - name: Commit changes
+        run: |
+          git add assets
+          if git diff --cached --quiet; then
+            echo "Graphics unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: refresh profile graphics"
+          git push
