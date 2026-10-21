@@ -105,17 +105,14 @@
     "top": 6,
     "excludeRepos": [
       "osamabq-me",
-      "PDW_Final_K5",
       "UCP1_PDW_152",
       "Triangle",
-      "Exe2_20210140152",
-      "Voucher-Game"
+      "Exe2_20210140152"
     ],
     "excludeLanguages": [
       "TeX",
       "SCSS",
       "Blade",
-      "CSS"
     ]
   },
   "headerArt": "flow"
