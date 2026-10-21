@@ -2,7 +2,7 @@
 <p>
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.svg">
-  <img alt="Osamah Almekhlafi | Software Engineer | Full-Stack, Backend, Data & AI. Building technology for a safer, smarter, and more comfortable world." src="assets/header-light.svg" width="100%">
+  <img alt="Osamah Al-Mekhlafi | Software Engineer | Full-Stack, Backend, Data & AI. Building technology for a safer, smarter, and more comfortable world." src="assets/header-light.svg" width="100%">
 </picture>
 </p>
 
@@ -13,40 +13,60 @@
 
 Software engineer working across full-stack development, financial systems, data, and intelligent automation, with a strong foundation in backend engineering.
 
-Previously led backend development for branch banking microservices as the sole backend engineer in a five-person team. Computer Science valedictorian at Universitas Muhammadiyah Yogyakarta (UMY) and published IEEE research co-author.
+Currently a Software Developer in fintech, where I built a crypto payments and dividend platform end to end, from the React front end to the Spring Boot backend and on-chain payment verification. Previously the sole backend engineer on a five-person team building branch banking microservices. Computer Science valedictorian at Universitas Muhammadiyah Yogyakarta (UMY) and published IEEE research co-author.
 
 Most of my professional work lives in private repositories due to employer confidentiality.
 
 <p>
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/stack-dark.svg">
-  <img alt="Technical Stack. Languages: Java, Python, C#/.NET, Kotlin, C++, SQL. Backend: Spring Boot, Spring Cloud, Swagger, REST APIs, Temenos. Databases: Oracle, MySQL, SQL Server, ER modeling. Data and ML: pandas, NumPy, scikit-learn, XGBoost, Plotly, Folium, Power BI. AI and automation: n8n, Claude Code, Cursor, OpenClaw, GitHub Actions. Security and ops: Kali Linux, OWASP testing, GitLab CI/CD, Red Hat Linux." src="assets/stack-light.svg" width="100%">
+  <img alt="Technical Stack. Languages: Java, Python, C#/.NET, Kotlin, C++, SQL. Backend: Spring Boot, Spring Cloud, Swagger, REST APIs, Temenos, BNB Smart Chain, WalletConnect. Frontend and mobile: React, Vite, Flutter, Jetpack Compose. Databases: Oracle, MySQL, SQL Server, ER modeling. Data and ML: pandas, NumPy, scikit-learn, XGBoost, Plotly, Folium, Power BI. AI and automation: n8n, Claude Code, Cursor, OpenClaw. DevOps: Docker, nginx, Prometheus, Grafana, GitLab CI/CD, GitHub Actions. Security: Kali Linux, OWASP testing, JWT auth, Red Hat Linux. Embedded and IoT: Linux kernel modules, ARM cross-compiling, ADB." src="assets/stack-light.svg" width="100%">
 </picture>
 </p>
 
 ### Selected Work
 
 <details>
-<summary><b>Branch Banking Microservices</b> · Banking · 2024–25</summary>
+<summary><b>Crypto Payments & Dividend Platform</b> · Fintech · 2025–present</summary>
 <br>
 
-Backend for the bank's teller application, supporting customer lookup, account opening, cash deposits and withdrawals, transaction fees, and multiple currencies. I served as team lead and the sole backend engineer in a five-person team.
+A full-stack payments and dividend platform I built from scratch on my own: the public website, the admin back office and the backend.
 
-- Seven Spring Boot services behind a Spring Cloud gateway, integrated with Oracle and the Temenos core banking system.
-- Documented APIs using Swagger/OpenAPI and managed development through GitLab.
-- Profiled and optimized request handling to improve processing performance under load.
+- React (Vite) website and back office: a multi-step buying wizard, wallet and transaction history, live supply updates over server-sent events, and analytics with Excel/CSV export.
+- On-chain payment verification: every blockchain transfer is checked against a BNB Smart Chain node, and users prove wallet ownership by signing a challenge (WalletConnect).
+- Safe money movement: the same transfer can never be credited twice, even under concurrent retries; automatic demand-based pricing locks the buyer's price during payment.
+- Dividend engine that snapshots every holder's balance and credits each holder proportionally in one transaction.
+- Security and reliability: email verification, rotating JWT sessions in httpOnly cookies, CAPTCHA, new-device alerts, an email outbox with retries, and a reconciliation sweep that flags unmatched transfers.
+- Java, Spring Boot, MySQL, Swagger/OpenAPI, monitored with Prometheus and Grafana, deployed with Docker and nginx.
 
 *Employer project; source code is private.*
 
 </details>
 
 <details>
-<summary><b>Dividend Calculation Engine</b> · Fintech · 2025</summary>
+<summary><b>Wi-Fi Sensing on Android Devices</b> · IoT · Ongoing</summary>
 <br>
 
-Backend architecture for a high-volume financial platform, supporting automated transaction workflows and a scalable dividend calculation engine.
+Cross-compiled a Realtek USB Wi-Fi driver for Android 11 (Linux kernel 4.19) on Orange Pi boards and loaded it over ADB.
 
-*Employer project under NDA; details limited to what can be shared.*
+- Extended the devices' weak Wi-Fi range.
+- Enabled monitor mode, so the devices capture Wi-Fi probe requests to estimate how many people are nearby (validated with airodump-ng).
+
+*Employer project; source code is private.*
+
+</details>
+
+<details>
+<summary><b>Branch Banking Microservices</b> · Banking · 2024–25</summary>
+<br>
+
+Backend for a bank's teller application, covering customer lookup, account opening, cash deposits and withdrawals, transaction fees, and multiple currencies. I was the sole backend engineer on a five-person team.
+
+- Spring Boot microservices that replaced a legacy framework, integrated with Oracle and the Temenos core banking system.
+- Documented APIs with Swagger/OpenAPI and delivered faster API responses.
+- Ran development and CI/CD through GitLab from build to launch and handover.
+
+*Employer project under NDA; source code is private.*
 
 </details>
 
@@ -56,21 +76,21 @@ Backend architecture for a high-volume financial platform, supporting automated 
 
 A machine learning project predicting which telecom customers are likely to leave and identifying factors associated with customer churn.
 
-- Integrated data from SQL Server, Excel, and CSV; identified churn-related factors through hypothesis testing.
-- Compared nine classification models, applying SMOTE to address class imbalance and hyperparameter tuning to optimize the best-performing models.
-- Gradient Boosting achieved **0.86 recall**, correctly identifying 86% of churned customers, while Random Forest achieved **0.88 accuracy** on held-out test data.
+- Integrated data from SQL Server, Excel, and CSV; identified churn-related factors through hypothesis testing and feature engineering.
+- Compared nine classification models on accuracy, precision, recall, F1 and ROC-AUC, using SMOTE for class imbalance, cross-validation and Random Forest tuning.
+- Random Forest reached **85.84% accuracy**; Gradient Boosting caught **85.70%** and KNN **90.42%** of customers who churned (recall).
 
 </details>
 
 <details>
-<summary><b>Community Data Platform</b> · Yemeni Students Union in Indonesia · 2024–25</summary>
+<summary><b>Community Data Platform</b> · Yemeni Students Union in Indonesia · 2024–26</summary>
 <br>
 
-The union's first comprehensive data study, combining student records, dashboards, and analysis of Yemeni students across 60+ Indonesian universities.
+The union's first comprehensive data study of Yemeni students across 58 Indonesian universities and 66 fields of study, combining student records, dashboards, and analysis.
 
-- Cleaned and analyzed Arabic and English survey data; applied clustering (K-Means, PCA), correlation, and regression techniques.
-- Developed interactive visualizations using Plotly and a geographic map using Folium.
-- Findings contributed to the union's decision to establish a dedicated IT department.
+- Cleaned and analyzed Arabic and English survey data with descriptive statistics and relational (bivariate and multivariate) analysis.
+- Built interactive visualizations with Plotly and geographic maps with Folium and Leaflet.js.
+- Findings contributed to the union's decision to establish a dedicated IT department; the study is being prepared for journal publication.
 
 </details>
 
