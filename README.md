@@ -20,7 +20,7 @@ Most of my professional work lives in private repositories due to employer confi
 <p>
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/stack-dark.svg">
-  <img alt="Technical Stack. Languages: Java, Python, C#/.NET, Kotlin, C++, SQL. Backend: Spring Boot, Spring Cloud, Swagger, REST APIs, Temenos, BNB Smart Chain, WalletConnect. Frontend and mobile: React, Vite, Flutter, Jetpack Compose. Databases: Oracle, MySQL, SQL Server, ER modeling. Data and ML: pandas, NumPy, scikit-learn, XGBoost, Plotly, Folium, Power BI. AI and automation: n8n, Claude Code, Cursor, OpenClaw. DevOps: Docker, nginx, Prometheus, Grafana, GitLab CI/CD, GitHub Actions. Security: Kali Linux, OWASP testing, JWT auth, Red Hat Linux. Embedded and IoT: Linux kernel modules, ARM cross-compiling, ADB." src="assets/stack-light.svg" width="100%">
+  <img alt="Technical Stack. Languages: Java, Python, C#/.NET, Kotlin, C++, SQL. Backend: Spring Boot, Spring Cloud, Swagger, REST APIs, Temenos, Blockchain, WalletConnect. Frontend and mobile: React, Vite, Flutter, Jetpack Compose. Databases: Oracle, MySQL, SQL Server, ER modeling. Data and ML: pandas, NumPy, scikit-learn, XGBoost, Plotly, Folium, Power BI. AI and automation: n8n, Claude Code, Cursor, OpenClaw. DevOps: Docker, nginx, Prometheus, Grafana, GitLab CI/CD, GitHub Actions. Security: Kali Linux, OWASP testing, JWT auth, Red Hat Linux. Embedded and IoT: Linux kernel modules, ARM cross-compiling, ADB." src="assets/stack-light.svg" width="100%">
 </picture>
 </p>
 
@@ -33,7 +33,7 @@ Most of my professional work lives in private repositories due to employer confi
 A full-stack payments and dividend platform I built from scratch on my own: the public website, the admin back office and the backend.
 
 - React (Vite) website and back office: a multi-step buying wizard, wallet and transaction history, live supply updates over server-sent events, and analytics with Excel/CSV export.
-- On-chain payment verification: every blockchain transfer is checked against a BNB Smart Chain node, and users prove wallet ownership by signing a challenge (WalletConnect).
+- On-chain payment verification: every blockchain transfer is checked against a Block Chain node, and users prove wallet ownership by signing a challenge (WalletConnect).
 - Safe money movement: the same transfer can never be credited twice, even under concurrent retries; automatic demand-based pricing locks the buyer's price during payment.
 - Dividend engine that snapshots every holder's balance and credits each holder proportionally in one transaction.
 - Security and reliability: email verification, rotating JWT sessions in httpOnly cookies, CAPTCHA, new-device alerts, an email outbox with retries, and a reconciliation sweep that flags unmatched transfers.
