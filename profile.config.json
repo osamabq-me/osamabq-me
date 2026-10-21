@@ -104,6 +104,7 @@
   "languages": {
     "top": 6,
     "excludeRepos": [
+      "osamabq-me",
       "PDW_Final_K5",
       "UCP1_PDW_152",
       "Triangle",
