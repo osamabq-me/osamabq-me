@@ -107,12 +107,30 @@
       "osamabq-me",
       "UCP1_PDW_152",
       "Triangle",
-      "Exe2_20210140152"
+      "Exe2_20210140152",
+      "PDW_Final_K5",
+      "Voucher-Game",
+      "Bubble_Sort_Activity",
+      "First_Ecercies",
+      "Exercise_2",
+      "QuickSort",
+      "SearchAlgoritm",
+      "Singlly_linked_list",
+      "Double_linked_list",
+      "Exercise3_152",
+      "Exercise-4_152",
+      "StackUsingLinkedLidt_Class_C",
+      "CircularQueues_CSharp",
+      "EXE5_152_KELOMPOK4",
+      "BinarySearchTree_152",
+      "UAS_152"
     ],
     "excludeLanguages": [
       "TeX",
       "SCSS",
-      "Blade"
+      "Blade",
+      "HTML",
+      "CSS"
     ]
   },
   "headerArt": "flow"
