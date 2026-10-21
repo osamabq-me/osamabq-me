@@ -286,20 +286,28 @@ function artSecure(t, mode, h) {
   return a;
 }
 
-// Product flow: data -> backend -> API -> protect -> user interface, with a
-// second branch from data to an insight dashboard. The shield stops an outside attack.
+// Product flow: data -> backend -> API -> protect -> user interface (the build).
+// A second loop runs data -> pipeline -> insight and feeds back into the
+// interface, so analytics powers the product. The shield stops an outside attack.
+// Captions tell the OSTA story: architecture, secure, automation -> AI.
 function artFlow(t, mode, h) {
   const line = t.accent, op = mode === "dark" ? 0.55 : 0.45, amber = spark(mode);
-  const topY = 92, botY = 200, dX = 500, dY = 146;
-  const xs = { backend: 572, api: 640, protect: 708, ui: 782 }, insX = 706;
+  const topY = 92, botY = 214, dX = 500, dY = 146;
+  const xs = { backend: 572, api: 640, protect: 708, ui: 782 }, pipeX = 598, insX = 700;
   let a = "";
-  const L = (d) => `<path d="${d}" fill="none" stroke="${line}" stroke-opacity="${op}" stroke-width="1.5"/>`;
+  const L = (d, o = op) => `<path d="${d}" fill="none" stroke="${line}" stroke-opacity="${o}" stroke-width="1.5"/>`;
   const pData1 = `M${dX + 18},${dY - 8} C${dX + 44},${dY - 8} ${xs.backend - 50},${topY} ${xs.backend - 22},${topY}`;
   const pBA = `M${xs.backend + 22},${topY} L${xs.api - 20},${topY}`;
   const pAP = `M${xs.api + 20},${topY} L${xs.protect - 20},${topY}`;
   const pPU = `M${xs.protect + 20},${topY} L${xs.ui - 27},${topY}`;
-  const pData2 = `M${dX + 18},${dY + 8} C${dX + 70},${dY + 8} ${insX - 90},${botY} ${insX - 30},${botY}`;
-  a += L(pData1) + L(pBA) + L(pAP) + L(pPU) + L(pData2);
+  const pData2 = `M${dX + 18},${dY + 8} C${dX + 50},${dY + 8} ${pipeX - 56},${botY} ${pipeX - 22},${botY}`;
+  const pPI = `M${pipeX + 22},${botY} L${insX - 29},${botY}`;
+  // insight feeds back up into the interface, along its right side
+  const rx = xs.ui + 40;
+  const pBack = `M${insX + 29},${botY} L${rx - 18},${botY} C${rx - 4},${botY} ${rx},${botY - 6} ${rx},${botY - 20} L${rx},${topY + 16} C${rx},${topY + 4} ${rx - 4},${topY} ${xs.ui + 32},${topY}`;
+  a += L(pData1) + L(pBA) + L(pAP) + L(pPU) + L(pData2) + L(pPI);
+  a += `<path d="${pBack}" fill="none" stroke="${line}" stroke-opacity="${op}" stroke-width="1.5" stroke-dasharray="4 4"/>`;
+  a += `<path d="M${xs.ui + 28},${topY} l6,-4 v8 z" fill="${line}" fill-opacity="${op + 0.2}"/>`;
   // data: one database
   a += `<g transform="translate(${dX} ${dY})"><path d="M-18,-16 v32 a18,6 0 0 0 36,0 v-32" fill="${t.tile}" stroke="${line}" stroke-opacity="0.75"/><ellipse cx="0" cy="-16" rx="18" ry="6" fill="${t.bg}" stroke="${line}" stroke-opacity="0.75"/><path d="M-18,-5 a18,6 0 0 0 36,0 M-18,6 a18,6 0 0 0 36,0" fill="none" stroke="${line}" stroke-opacity="0.45"/></g>`;
   // backend: a server with blinking lights
@@ -315,7 +323,11 @@ function artFlow(t, mode, h) {
   a += `<g transform="translate(${xs.ui} ${topY})"><rect x="-27" y="-22" width="54" height="44" rx="7" fill="${t.bg}" stroke="${line}" stroke-opacity="0.8"/><path d="M-27,-12 H27" stroke="${line}" stroke-opacity="0.4"/>`;
   [-21, -16, -11].forEach((x) => (a += `<circle cx="${x}" cy="-17" r="1.6" fill="${t.faint}"/>`));
   a += `<rect x="-21" y="-6" width="18" height="22" rx="3" fill="${t.accentSoft}"/><rect x="1" y="-6" width="20" height="5" rx="2" fill="${t.heat[2]}"/><rect x="1" y="2" width="14" height="5" rx="2" fill="${t.heat[1]}"/><rect x="1" y="10" width="17" height="5" rx="2" fill="${t.heat[1]}"/></g>`;
-  // insight: a dashboard with live bars
+  // pipeline: a funnel that cleans and moves data automatically
+  a += `<g transform="translate(${pipeX} ${botY})"><rect x="-21" y="-20" width="42" height="40" rx="9" fill="${t.tile}" stroke="${line}" stroke-opacity="0.75"/><path d="M-12,-10 H12 L4,0 V9 L-4,12 V0 Z" fill="${t.accentSoft}" stroke="${line}" stroke-width="1.6" stroke-linejoin="round"/>`;
+  [0, 0.5, 1].forEach((b) => (a += `<circle cx="0" cy="-7" r="1.6" fill="${line}" opacity="0"><animate attributeName="cy" values="-7;10" dur="1.5s" begin="${b}s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.2;.8;1" dur="1.5s" begin="${b}s" repeatCount="indefinite"/></circle>`));
+  a += `</g>`;
+  // insight: a dashboard with live bars, plus an AI spark
   const ix = insX - 28, iy = botY - 26, iw = 58, ih = 52;
   a += `<rect x="${ix}" y="${iy}" width="${iw}" height="${ih}" rx="8" fill="${t.bg}" stroke="${line}" stroke-opacity="0.75"/>`;
   [[0.5, 0.85, 0.6], [0.75, 0.45, 0.9], [0.35, 0.7, 0.5], [0.9, 0.6, 0.8]].forEach((v, i) => {
@@ -324,13 +336,23 @@ function artFlow(t, mode, h) {
     const sp = `calcMode="spline" keySplines=".4 0 .2 1;.4 0 .2 1;.4 0 .2 1" keyTimes="0;.33;.66;1"`;
     a += `<rect x="${f1(bx)}" y="${f1(base - v[0] * full)}" width="8" height="${f1(v[0] * full)}" rx="2" fill="${i === 3 ? line : t.heat[2]}"><animate attributeName="y" values="${ys}" dur="6s" repeatCount="indefinite" ${sp}/><animate attributeName="height" values="${hs}" dur="6s" repeatCount="indefinite" ${sp}/></rect>`;
   });
+  a += `<path transform="translate(${ix + iw} ${iy})" d="M0,-7 L1.8,-1.8 L7,0 L1.8,1.8 L0,7 L-1.8,1.8 L-7,0 L-1.8,-1.8 Z" fill="${amber}"><animate attributeName="opacity" values="1;.3;1" dur="2s" repeatCount="indefinite"/></path>`;
   // labels
   const lab = (x, y, s) => `<text x="${x}" y="${y}" text-anchor="middle" font-family="${MONO}" font-size="8.5" letter-spacing="1.3" fill="${t.muted}">${s}</text>`;
-  a += lab(dX, dY + 38, "DATA") + lab(xs.backend, topY + 36, "BACKEND") + lab(xs.api, topY + 36, "API") + lab(xs.protect, topY + 36, "PROTECT") + lab(xs.ui, topY + 36, "INTERFACE") + lab(insX + 1, botY + 42, "INSIGHT");
+  a += lab(dX, dY + 38, "DATA") + lab(xs.backend, topY + 36, "BACKEND") + lab(xs.api, topY + 36, "API") + lab(xs.protect, topY + 36, "PROTECT") + lab(xs.ui, topY + 36, "INTERFACE");
+  a += lab(pipeX, botY + 36, "PIPELINE") + lab(insX + 1, botY + 42, "INSIGHT");
+  // captions: what each part of the system stands for
+  const cap = (x, y, s) => `<text x="${x}" y="${y}" text-anchor="middle" font-family="${MONO}" font-size="7.5" letter-spacing="1.5" fill="${line}" fill-opacity="0.75">${s}</text>`;
+  a += cap((xs.backend + xs.api) / 2, topY - 38, "ARCHITECTURE") + `<path d="M${xs.backend - 20},${topY - 33} H${xs.api + 20}" stroke="${line}" stroke-opacity="0.25"/>`;
+  a += cap(xs.protect - 4, topY - 38, "SECURE");
+  a += cap((pipeX + insX) / 2, botY + 62, "AUTOMATION → AI");
   // traffic along the main flow
   const seq = [[pData1, 1.4, 0], [pBA, 0.7, 0.3], [pAP, 0.7, 0.6], [pPU, 0.8, 0.9]];
   seq.forEach(([d, dur, b]) => (a += `<circle r="3.3" fill="${line}"><animateMotion dur="${dur}s" begin="${b}s" repeatCount="indefinite" path="${d}"/></circle>`));
-  a += `<circle r="3.3" fill="${amber}"><animateMotion dur="2.2s" begin="0.5s" repeatCount="indefinite" path="${pData2}"/></circle>`;
+  // data travelling through the insight loop and back to the product
+  a += `<circle r="3.3" fill="${line}"><animateMotion dur="1.6s" begin="0.2s" repeatCount="indefinite" path="${pData2}"/></circle>`;
+  a += `<circle r="3.3" fill="${line}"><animateMotion dur="0.9s" begin="0.5s" repeatCount="indefinite" path="${pPI}"/></circle>`;
+  a += `<circle r="3.3" fill="${amber}"><animateMotion dur="2.4s" begin="0.8s" repeatCount="indefinite" path="${pBack}"/></circle>`;
   // an outside attack aimed at the app, stopped at the shield
   const atk = `M${xs.protect + 46},${topY - 72} L${xs.protect + 14},${topY - 16}`;
   a += `<path d="${atk}" fill="none" stroke="#ef4444" stroke-opacity=".35" stroke-dasharray="3 4"/>`;
