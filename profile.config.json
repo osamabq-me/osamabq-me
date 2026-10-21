@@ -112,7 +112,7 @@
     "excludeLanguages": [
       "TeX",
       "SCSS",
-      "Blade",
+      "Blade"
     ]
   },
   "headerArt": "flow"
