@@ -29,7 +29,6 @@
         { "name": "Swagger", "icon": "swagger" },
         { "name": "REST APIs", "icon": "x-braces" },
         { "name": "Temenos", "color": "#7c3aed", "icon": "x-bank" },
-        { "name": "BNB Smart Chain", "icon": "bnbchain" },
         { "name": "WalletConnect", "icon": "walletconnect" }
       ]
     },
