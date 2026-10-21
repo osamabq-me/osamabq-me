@@ -29,6 +29,7 @@
         { "name": "Swagger", "icon": "swagger" },
         { "name": "REST APIs", "icon": "x-braces" },
         { "name": "Temenos", "color": "#7c3aed", "icon": "x-bank" },
+        { "name": "Blockchain", "mono": "BC", "color": "#7c3aed" },
         { "name": "WalletConnect", "icon": "walletconnect" }
       ]
     },
