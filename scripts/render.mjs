@@ -631,9 +631,11 @@ function overview(t, d, mode) {
   let stats = `<text x="${R}" y="44" text-anchor="end" font-family="${MONO}" font-size="11" letter-spacing="1.2" fill="${t.muted}">LAST 12 MONTHS</text>`;
   stats += `<text x="${R}" y="96" text-anchor="end" font-family="${SANS}" font-size="48" font-weight="700" letter-spacing="-1" fill="${t.accent}">${fmt(d.lastYear)}</text>`;
   stats += `<text x="${R}" y="120" text-anchor="end" font-family="${SANS}" font-size="15" fill="${t.ink}">contributions</text>`;
-  const fw = String(fmt(d.forks)).length * 11, sw2 = String(fmt(d.stars)).length * 11;
-  stats += fork(R - fw - 22, 140) + `<text x="${R}" y="154" text-anchor="end" font-family="${SANS}" font-size="18" font-weight="600" fill="${t.ink}">${fmt(d.forks)}</text>`;
-  stats += star(R - fw - 34 - sw2 - 22, 140) + `<text x="${R - fw - 34}" y="154" text-anchor="end" font-family="${SANS}" font-size="18" font-weight="600" fill="${t.ink}">${fmt(d.stars)}</text>`;
+  if (d.stars + d.forks > 0) {
+    const fw = String(fmt(d.forks)).length * 11, sw2 = String(fmt(d.stars)).length * 11;
+    stats += fork(R - fw - 22, 140) + `<text x="${R}" y="154" text-anchor="end" font-family="${SANS}" font-size="18" font-weight="600" fill="${t.ink}">${fmt(d.forks)}</text>`;
+    stats += star(R - fw - 34 - sw2 - 22, 140) + `<text x="${R - fw - 34}" y="154" text-anchor="end" font-family="${SANS}" font-size="18" font-weight="600" fill="${t.ink}">${fmt(d.stars)}</text>`;
+  }
   // language ring, bottom-left
   const langs = d.languages, total = langs.reduce((a, l) => a + l.size, 0) || 1;
   const rx = 100, ry = 318, Rr = 46, sw = 20, Cc = 2 * Math.PI * Rr;
