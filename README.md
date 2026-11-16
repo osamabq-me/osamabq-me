@@ -7,6 +7,7 @@
 </p>
 
 <p align="center">
+  <a href="https://osamah.space/"><img alt="Portfolio" src="https://img.shields.io/badge/Portfolio-6d28d9?style=for-the-badge&logo=googlechrome&logoColor=white"></a>
   <a href="https://www.linkedin.com/in/osamahalmekhlafi"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-6d28d9?style=for-the-badge&logo=linkedin&logoColor=white"></a>
   <a href="https://doi.org/10.1109/ICITCOM60176.2023.10442144"><img alt="IEEE Publication" src="https://img.shields.io/badge/IEEE_Publication-6d28d9?style=for-the-badge&logo=ieee&logoColor=white"></a>
   <a href="https://orcid.org/0009-0008-1664-1319"><img alt="ORCID" src="https://img.shields.io/badge/ORCID-6d28d9?style=for-the-badge&logo=orcid&logoColor=white"></a>
